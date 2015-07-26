@@ -3,30 +3,55 @@ import ace from 'brace';
 
 var AceEditor = React.createClass({
     propTypes: {
-        name: React.PropTypes.string,
         mode: React.PropTypes.string,
+        theme: React.PropTypes.string,
         onChange: React.PropTypes.func
     },
     getDefaultProps: function () {
         'use strict';
 
-        return {};
+        return {
+            theme: 'tomorrow_night'
+        };
     },
     componentDidMount: function () {
         'use strict';
 
+        // themes
+        require('brace/theme/solarized_dark');
+        require('brace/theme/tomorrow');
+        require('brace/theme/cobalt');
+        require('brace/theme/solarized_light');
+        require('brace/theme/twilight');
+        require('brace/theme/github');
+        require('brace/theme/kuroir');
+        require('brace/theme/monokai');
+        require('brace/theme/clouds');
+        require('brace/theme/dawn');
+        require('brace/theme/idle_fingers');
+        require('brace/theme/merbivore');
+        require('brace/theme/pastel_on_dark');
+        require('brace/theme/textmate');
         require('brace/theme/tomorrow_night');
+
+        // markup modes
         require('brace/mode/html');
+        require('brace/mode/jade');
+        require('brace/mode/markdown');
+
+        // styling modes
         require('brace/mode/css');
+        require('brace/mode/scss');
+        require('brace/mode/less');
+        // js modes
         require('brace/mode/javascript');
+        require('brace/mode/coffee');
 
-        this.iframe = document.querySelector('iframe');
-
-        this.editor = ace.edit(this.props.name + '-editor');
+        this.editor = ace.edit(this.props.mode + '-editor');
 
         this.editor.$blockScrolling = Infinity;
         this.editor.getSession().setMode('ace/mode/' + this.props.mode);
-        this.editor.setTheme('ace/theme/tomorrow_night');
+        this.editor.setTheme('ace/theme/' + this.props.theme);
         this.editor.on('change', this.onChange);
     },
     onChange: function () {
@@ -38,7 +63,7 @@ var AceEditor = React.createClass({
             this.props.onChange(value);
         }
 
-        var iframeDocument = this.iframe.contentDocument;
+        var iframeDocument = document.querySelector('.result iframe').contentDocument;
         iframeDocument.open();
         iframeDocument.write(value);
         iframeDocument.close();
@@ -46,11 +71,15 @@ var AceEditor = React.createClass({
     render: function () {
         'use strict';
 
-        var id = this.props.name + '-editor';
-        var className = this.props.name + ' editor';
+        var id = this.props.mode + '-editor';
+        var className = this.props.mode + ' editor';
 
         return (
-            <div className={className} id={id} onChange={this.onChange}></div>
+            <div
+                className={className}
+                id={id}
+                onChange={this.onChange}
+            />
         );
     }
 });

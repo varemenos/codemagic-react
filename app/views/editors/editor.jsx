@@ -7,7 +7,10 @@ var Editor = React.createClass({
 
         return (
             <div className="editor-wrap">
-                <AceEditor name={this.props.name} mode={this.props.mode} />
+                <AceEditor
+                    mode={this.props.mode}
+                    theme={this.props.theme}
+                />
             </div>
         );
     }

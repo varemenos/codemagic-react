@@ -20,7 +20,7 @@ var Editors = React.createClass({
 
         var Editors = this.props.editors.map(function (editor) {
             return (
-                <Editor name={editor} mode={editor} key={editor} />
+                <Editor mode={editor} key={editor} />
             );
         });
 
