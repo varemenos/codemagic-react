@@ -2,16 +2,17 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    background-color: #011e3a;
+    background-color: #eee;
+    border-right: 1px solid #ddd;
 }
 
 .editor-wrap {
     flex: 1;
     position: relative;
-    border-bottom: 1px solid #002240;
+    border-bottom: 1px solid #ddd;
 
     .editor {
-            margin: 1rem;
+        margin: 1rem;
         position: absolute;
         top: 0;
         left: 0;
