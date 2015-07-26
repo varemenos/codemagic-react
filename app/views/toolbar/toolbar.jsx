@@ -8,17 +8,19 @@ var Toolbar = React.createClass({
         var ToolBarItems = this.props.items.map(function (item, index) {
             return (
                 <ToolbarItem
+                    type={item.type}
                     text={item.text}
                     icon={item.icon}
-                    direction={item.direction}
-                    hint={item.hint}
                     key={index}
                 />
             );
-        })
+        });
+
+        var className = 'toolbar';
+        className += this.props.type ? ' ' + this.props.type : '';
 
         return (
-            <nav className="toolbar">
+            <nav className={className}>
                 {ToolBarItems}
             </nav>
         );

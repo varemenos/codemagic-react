@@ -1,6 +1,6 @@
 import React from 'react';
 
-var ToolbarItem = React.createClass({
+var ToolbarItemIcon = React.createClass({
     render: function () {
         'use strict';
 
@@ -12,4 +12,4 @@ var ToolbarItem = React.createClass({
     }
 });
 
-export default ToolbarItem;
+export default ToolbarItemIcon;

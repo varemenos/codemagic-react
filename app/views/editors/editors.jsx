@@ -2,17 +2,6 @@ import React from 'react';
 import Editor from './editor.jsx';
 
 var Editors = React.createClass({
-    getInitialState: function () {
-        'use strict';
-
-        return {
-            editors: [
-                'html',
-                'css',
-                'javascript'
-            ]
-        };
-    },
     componentDidMount: function () {
         'use strict';
 

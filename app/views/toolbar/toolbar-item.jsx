@@ -5,18 +5,22 @@ var ToolbarItem = React.createClass({
     render: function () {
         'use strict';
 
-        var className = 'toolbar-item hint--' + this.props.direction;
+        var className = 'toolbar-item';
+
+        if (this.props.type === 'seperator') {
+            className += ' toolbar-item-seperator';
+        }
 
         var ToolbarContent;
 
-        if (this.props.icon) {
+        if (this.props.type === 'icon') {
             ToolbarContent = <ToolbarItemIcon icon={this.props.icon} />;
-        } else {
+        } else if (this.props.type === 'text') {
             ToolbarContent = this.props.text;
         }
 
         return (
-            <button className={className} data-hint={this.props.hint}>
+            <button className={className}>
                 {ToolbarContent}
             </button>
         );

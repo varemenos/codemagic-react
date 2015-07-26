@@ -15,7 +15,7 @@ var AceEditor = React.createClass({
     componentDidMount: function () {
         'use strict';
 
-        require('brace/theme/cobalt');
+        require('brace/theme/tomorrow_night');
         require('brace/mode/html');
         require('brace/mode/css');
         require('brace/mode/javascript');
@@ -26,7 +26,7 @@ var AceEditor = React.createClass({
 
         this.editor.$blockScrolling = Infinity;
         this.editor.getSession().setMode('ace/mode/' + this.props.mode);
-        this.editor.setTheme('ace/theme/cobalt');
+        this.editor.setTheme('ace/theme/tomorrow_night');
         this.editor.on('change', this.onChange);
     },
     onChange: function () {
