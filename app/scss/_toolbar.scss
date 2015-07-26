@@ -1,0 +1,18 @@
+.toolbar {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0.5em;
+    background-color: #011e3a;
+    border-right: 1px solid #002240;
+}
+
+.toolbar-item {
+    margin-bottom: 1em;
+    padding: 0.5em;
+    font-size: 0.75em;
+    color: #fff;
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}

@@ -1,0 +1,21 @@
+.editors {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    background-color: #011e3a;
+}
+
+.editor-wrap {
+    flex: 1;
+    position: relative;
+    border-bottom: 1px solid #002240;
+
+    .editor {
+            margin: 1rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
+}
