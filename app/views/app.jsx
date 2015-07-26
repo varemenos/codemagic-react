@@ -15,17 +15,22 @@ var App = React.createClass({
 
         var toolbarItems = [
             {
+                text: 'HTML',
+                direction: 'right',
+                hint: 'HTML'
+            },
+            {
                 icon: 'file',
                 direction: 'right',
-                hint: 'Are you sure you are?'
+                hint: 'New file'
             }, {
-                icon: 'file',
+                icon: 'folder',
                 direction: 'right',
-                hint: 'Are you sure you are?'
+                hint: 'New folder'
             }, {
-                icon: 'file',
+                icon: 'cog',
                 direction: 'right',
-                hint: 'Are you sure you are?'
+                hint: 'Settings'
             }
         ];
 

@@ -8,6 +8,7 @@ var Toolbar = React.createClass({
         var ToolBarItems = this.props.items.map(function (item, index) {
             return (
                 <ToolbarItem
+                    text={item.text}
                     icon={item.icon}
                     direction={item.direction}
                     hint={item.hint}

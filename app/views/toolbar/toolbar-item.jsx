@@ -7,9 +7,17 @@ var ToolbarItem = React.createClass({
 
         var className = 'toolbar-item hint--' + this.props.direction;
 
+        var ToolbarContent;
+
+        if (this.props.icon) {
+            ToolbarContent = <ToolbarItemIcon icon={this.props.icon} />;
+        } else {
+            ToolbarContent = this.props.text;
+        }
+
         return (
             <button className={className} data-hint={this.props.hint}>
-                <ToolbarItemIcon icon={this.props.icon} />
+                {ToolbarContent}
             </button>
         );
     }
