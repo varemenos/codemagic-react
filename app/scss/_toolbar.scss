@@ -11,8 +11,15 @@
 .toolbar-item {
     margin-bottom: 1em;
     padding: 0.5em;
+    cursor: pointer;
     font-size: 0.75em;
     color: #fff;
-    background: none;
+    background: transparent;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background 250ms;
+    border-radius: 3px;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.15);
+    }
 }
