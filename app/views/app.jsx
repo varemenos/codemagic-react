@@ -3,12 +3,7 @@ import Editors from './editors/editors.jsx';
 import Result from './results/results.jsx';
 import Toolbar from './toolbar/toolbar.jsx';
 import toolbarItems from '../config/toolbar-items.jsx';
-
-var editors = [
-    'html',
-    'css',
-    'javascript'
-];
+import editors from '../config/editors.jsx';
 
 var App = React.createClass({
     render: function () {
