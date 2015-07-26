@@ -56,7 +56,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-install-dependencies');
 
     grunt.registerTask('default', ['watch']);
-    grunt.registerTask('build', ['browserify']);
+    grunt.registerTask('build', ['install-dependencies', 'sass', 'browserify']);
 };
