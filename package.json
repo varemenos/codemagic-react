@@ -4,12 +4,14 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "node_modules/.bin/bower install"
   },
   "author": "Adonis K. <aklp08@gmail.com> (http://adonisk.com/)",
   "license": "MIT",
   "devDependencies": {
     "babelify": "^6.1.3",
+    "bower": "^1.4.1",
     "brace": "^0.5.1",
     "browserify": "^11.0.0",
     "grunt": "^0.4.5",
