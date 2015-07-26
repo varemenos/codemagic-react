@@ -7,10 +7,13 @@ var Editors = React.createClass({
 
         this.getDOMNode().addEventListener('transitionend', this.transitionEnd);
     },
-    transitionEnd: function () {
+    transitionEnd: function (e) {
         'use strict';
 
+        // handle transition when .inactive class is added/removed to this DOM node
+
         var el = this.getDOMNode();
+        console.log(e, el);
     },
     render: function () {
         'use strict';
