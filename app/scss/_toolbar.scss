@@ -1,17 +1,28 @@
 .toolbar {
     box-sizing: border-box;
     display: flex;
-    background-color: #72848C;
-    background-color: #2b5e74;
-    border-bottom: 2px solid #687981;
-    box-shadow: 0 0 5px #383838;
+    background-color: #345;
+    border: 0;
+    box-shadow: 0 0 5px #111;
     z-index: 2;
 
     &.vertical {
         flex-direction: column;
-        border-bottom: none;
-        border-right: 2px solid #687981;
-        border-right: 2px solid #30515F;
+        border-bottom-width: 0;
+        border-right-width: 2px;
+
+        .toolbar-item {
+            &.toggle {
+                color: rgba(255, 255, 255, 0.5);
+                border-bottom-width: 0;
+                border-left-width: 3px;
+            }
+        }
+
+        .toolbar-item-separator {
+            border-right-width: 0;
+            border-bottom-width: 1px;
+        }
     }
 }
 
@@ -20,25 +31,56 @@
     cursor: pointer;
     font-size: 0.875em;
     color: #fff;
-    border: none;
-    border-left: 3px solid transparent;
+    border: 0;
     background-color: transparent;
     text-shadow: none;
     transition: all 250ms;
     outline: none;
 
-    &.active {
-        background: rgba(255, 255, 255, 0.05);
-        border-left-color: #fff;
+    &.toggle {
+        color: rgba(255, 255, 255, 0.5);
+        border: 0 solid rgba(255, 255, 255, 0.25);
+        border-bottom-width: 3px;
+
+        &.active {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #fff;
+
+            &:hover {
+                background: rgba(255, 255, 255, 0.25);
+            }
+        }
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
     }
 
     &:hover {
+        background: rgba(255, 255, 255, 0.1);
         text-shadow: rgba(255, 255, 255, 0.4) 0 0 3em, rgba(76, 190, 255, 0.95) 0 0 2em;
     }
 }
 
-.toolbar-item-seperator {
+.toolbar-item-expand {
     flex: 1;
     cursor: initial;
     visibility: hidden;
+}
+
+.toolbar-item-space {
+    cursor: initial;
+    visibility: hidden;
+}
+
+.toolbar-item-separator {
+    padding: 0;
+    cursor: initial;
+    border: 0 dashed #456;
+    border-left-width: 1px;
+}
+
+.toolbar-item-brand {
+    background-color: #456;
 }

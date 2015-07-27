@@ -18,6 +18,9 @@ var Result = React.createClass({
 
         return (
             <div className="result">
+                <div className="cover">
+                    Press  <i className="fa fa-play" />  to render the result
+                </div>
                 <Frame></Frame>
             </div>
         );

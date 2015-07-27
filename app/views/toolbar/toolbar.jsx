@@ -11,6 +11,8 @@ var Toolbar = React.createClass({
                     type={item.type}
                     text={item.text}
                     icon={item.icon}
+                    brand={item.brand}
+                    toggle={item.toggle}
                     key={index}
                 />
             );

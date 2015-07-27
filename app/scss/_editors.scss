@@ -2,21 +2,52 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    background-color: #eee;
-    border-right: 1px solid #ddd;
+}
+
+@keyframes enabled {
+    100% {
+        display: block;
+        opacity: 1;
+    }
 }
 
 .editor-wrap {
+    display: none;
+    opacity: 0;
     flex: 1;
     position: relative;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px dashed #456;
+
+    &.enabled {
+        display: block;
+        animation: enabled 250ms forwards;
+    }
 
     .editor {
         margin: 1rem;
+        margin-right: 0;
         position: absolute;
         top: 0;
         left: 0;
         bottom: 0;
         right: 0;
+    }
+
+    .ace-tomorrow-night .ace_marker-layer .ace_active-line,
+    .ace-tomorrow-night .ace_gutter-active-line {
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    .ace-tomorrow-night .ace_marker-layer .ace_selection {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .ace-tomorrow-night {
+        background: #234;
+    }
+
+    .ace-tomorrow-night .ace_print-margin,
+    .ace-tomorrow-night .ace_gutter {
+        background: #345;
     }
 }

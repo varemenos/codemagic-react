@@ -7,8 +7,26 @@ var ToolbarItem = React.createClass({
 
         var className = 'toolbar-item';
 
-        if (this.props.type === 'seperator') {
-            className += ' toolbar-item-seperator';
+        if (typeof this.props.toggle !== 'undefined') {
+            className += ' toggle';
+
+            if (this.props.toggle) {
+                className += ' active';
+            }
+        }
+
+        className += [
+            'expand',
+            'separator',
+            'space'
+        ].map(function (type) {
+            if (this.props.type === type) {
+                return ' toolbar-item-' + type;
+            }
+        }.bind(this)).join(' ');
+
+        if (this.props.brand) {
+            className += ' toolbar-item-brand';
         }
 
         var ToolbarContent;

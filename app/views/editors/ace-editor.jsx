@@ -5,12 +5,14 @@ var AceEditor = React.createClass({
     propTypes: {
         mode: React.PropTypes.string,
         theme: React.PropTypes.string,
+        printMargin: React.PropTypes.bool,
         onChange: React.PropTypes.func
     },
     getDefaultProps: function () {
         'use strict';
 
         return {
+            printMargin: false,
             theme: 'tomorrow_night'
         };
     },
@@ -52,6 +54,7 @@ var AceEditor = React.createClass({
         this.editor.$blockScrolling = Infinity;
         this.editor.getSession().setMode('ace/mode/' + this.props.mode);
         this.editor.setTheme('ace/theme/' + this.props.theme);
+        this.editor.setShowPrintMargin(this.props.printMargin);
         this.editor.on('change', this.onChange);
     },
     onChange: function () {
