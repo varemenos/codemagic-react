@@ -19,7 +19,11 @@ var Result = React.createClass({
         return (
             <div className="result">
                 <div className="cover">
-                    Press  <i className="fa fa-play" />  to render the result
+                    <p>
+                        Press  <i className="fa fa-play" /> or hit &lt;Ctrl + enter&gt; to render the result
+                        <br />
+                        Or press <i className="fa fa-refresh" /> to enable auto-refresh
+                    </p>
                 </div>
                 <Frame></Frame>
             </div>

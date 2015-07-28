@@ -2,12 +2,20 @@ import React from 'react';
 import ToolbarItem from './toolbar-item.jsx';
 
 var Toolbar = React.createClass({
+    getInitialState: function () {
+        'use strict';
+
+        return {
+            items: this.props.items
+        }
+    },
     render: function () {
         'use strict';
 
-        var ToolBarItems = this.props.items.map(function (item, index) {
+        var ToolBarItems = this.state.items.map(function (item, index) {
             return (
                 <ToolbarItem
+                    name={item.name}
                     type={item.type}
                     text={item.text}
                     icon={item.icon}

@@ -5,7 +5,9 @@ var Editors = React.createClass({
     componentDidMount: function () {
         'use strict';
 
-        this.getDOMNode().addEventListener('transitionend', this.transitionEnd);
+        var el = this.getDOMNode();
+
+        // el.addEventListener('transitionend', this.transitionEnd);
     },
     transitionEnd: function (e) {
         'use strict';
@@ -20,7 +22,12 @@ var Editors = React.createClass({
 
         var Editors = this.props.editors.map(function (editor) {
             return (
-                <Editor mode={editor.mode} key={editor.mode} enabled={editor.enabled} />
+                <Editor
+                    name={editor.name}
+                    mode={editor.mode}
+                    key={editor.mode}
+                    enabled={editor.enabled}
+                />
             );
         });
 

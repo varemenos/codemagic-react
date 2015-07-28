@@ -1,22 +1,19 @@
 var toolbarItems = [
     {
-        type: 'text',
-        text: 'Codemagic',
-        brand: true
-    }, {
-        type: 'space'
-    }, {
+        name: 'markup',
         type: 'icon',
         icon: 'html5',
         toggle: true
     }, {
+        name: 'style',
         type: 'icon',
         icon: 'css3',
         toggle: true
     }, {
+        name: 'script',
         type: 'icon',
         icon: 'code',
-        toggle: false
+        toggle: true
     }, {
         type: 'space'
     }, {
@@ -30,6 +27,15 @@ var toolbarItems = [
         icon: 'arrows-alt'
     }, {
         type: 'icon',
+        icon: 'magic'
+    }, {
+        type: 'space'
+    }, {
+        type: 'icon',
+        icon: 'refresh',
+        toggle: false
+    }, {
+        type: 'icon',
         icon: 'play'
     }, {
         type: 'expand'
@@ -39,6 +45,10 @@ var toolbarItems = [
     }, {
         type: 'icon',
         icon: 'cog'
+    }, {
+        type: 'text',
+        text: 'Codemagic',
+        brand: true
     }, {
         type: 'icon',
         icon: 'question-circle'

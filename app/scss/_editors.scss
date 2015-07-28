@@ -2,35 +2,24 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    padding-bottom: 1rem;
 }
 
-@keyframes enabled {
-    100% {
-        display: block;
-        opacity: 1;
-    }
-}
-
-.editor-wrap {
+.editor-container {
     display: none;
-    opacity: 0;
     flex: 1;
+    flex-direction: column;
     position: relative;
-    border-bottom: 1px dashed #456;
+    margin: 1rem;
+    margin-right: 0;
+    margin-bottom: 0;
 
     &.enabled {
-        display: block;
-        animation: enabled 250ms forwards;
+        display: flex;
     }
 
     .editor {
-        margin: 1rem;
-        margin-right: 0;
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
+        flex: 1;
     }
 
     .ace-tomorrow-night .ace_marker-layer .ace_active-line,
@@ -49,5 +38,37 @@
     .ace-tomorrow-night .ace_print-margin,
     .ace-tomorrow-night .ace_gutter {
         background: #345;
+    }
+}
+
+.editor-settings {
+    display: flex;
+    color: #fff;
+
+    .editor-settings-mode,
+    .editor-settings-expand,
+    .editor-settings-toggle {
+        padding: 0.675em 1em;
+    }
+
+    .editor-settings-mode {
+        flex: 1;
+        padding-left: 0;
+    }
+
+    .editor-settings-expand,
+    .editor-settings-toggle {
+        font-size: 0.875em;
+        color: #fff;
+        border: 0;
+        background-color: transparent;
+        text-shadow: none;
+        transition: all 250ms;
+        outline: none;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.1);
+            text-shadow: rgba(255, 255, 255, 0.4) 0 0 3em, rgba(76, 190, 255, 0.95) 0 0 2em;
+        }
     }
 }

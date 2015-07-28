@@ -1,16 +1,57 @@
 import React from 'react';
+
 import ToolbarItemIcon from './toolbar-item-icon.jsx';
+import dispatcher from '../../utilities/dispatcher.jsx';
 
 var ToolbarItem = React.createClass({
-    render: function () {
+    onClick: function (e) {
+        'use strict';
+
+        if (['markup', 'style', 'script'].filter(function (name) {
+            return name === this.props.name
+        }.bind(this)).length) {
+            this.setState({
+                toggle: !this.state.toggle,
+                className: this.getClassName({
+                    toggle: !this.state.toggle,
+                    type: this.props.type,
+                    brand: this.props.brand
+                })
+            });
+
+            dispatcher.dispatch({
+                actionType: 'enable-editor',
+                editorName: this.props.name,
+                enabled: this.state.toggle
+            });
+        }
+    },
+    componentDidMount: function () {
+        'use strict';
+
+        this.getDOMNode().addEventListener('click', this.onClick);
+    },
+    getInitialState: function () {
+        'use strict';
+
+        return {
+            toggle: this.props.toggle,
+            className: this.getClassName({
+                toggle: this.props.toggle,
+                type: this.props.type,
+                brand: this.props.brand
+            })
+        };
+    },
+    getClassName: function (attrs) {
         'use strict';
 
         var className = 'toolbar-item';
 
-        if (typeof this.props.toggle !== 'undefined') {
+        if (typeof attrs.toggle !== 'undefined') {
             className += ' toggle';
 
-            if (this.props.toggle) {
+            if (attrs.toggle) {
                 className += ' active';
             }
         }
@@ -19,15 +60,20 @@ var ToolbarItem = React.createClass({
             'expand',
             'separator',
             'space'
-        ].map(function (type) {
-            if (this.props.type === type) {
-                return ' toolbar-item-' + type;
+        ].map(function (prop) {
+            if (attrs.type === prop) {
+                return ' toolbar-item-' + prop;
             }
         }.bind(this)).join(' ');
 
-        if (this.props.brand) {
+        if (attrs.brand) {
             className += ' toolbar-item-brand';
         }
+
+        return className;
+    },
+    render: function () {
+        'use strict';
 
         var ToolbarContent;
 
@@ -38,7 +84,7 @@ var ToolbarItem = React.createClass({
         }
 
         return (
-            <button className={className}>
+            <button className={this.state.className}>
                 {ToolbarContent}
             </button>
         );

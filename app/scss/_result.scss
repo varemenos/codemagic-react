@@ -14,9 +14,14 @@
         right: 0;
         bottom: 0;
         font-size: 1.5em;
+        text-align: center;
         color: #fff;
         background-color: #456;
         border: none;
+
+        p {
+            line-height: 1.5;
+        }
 
         i {
             margin: 0 0.25em;
