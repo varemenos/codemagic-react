@@ -44,7 +44,7 @@ var Result = React.createClass({
 
         this.state.dispatcherID = dispatcher.register(function (payload) {
             if (payload.actionType === 'toggle-result-fullscreen') {
-                utils.toggleFullscreenMode(this.getDOMNode());
+                utils.toggleFullscreenMode(this.getDOMNode().querySelector('iframe'));
             }
         }.bind(this));
     },
