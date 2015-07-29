@@ -21,6 +21,18 @@ module.exports = function (grunt) {
                 }
             }
         },
+        copy: {
+            'index.html': {
+                files: [
+                    {
+                        cwd: './app/',
+                        expand: true,
+                        src: './index.html',
+                        dest: './dist/'
+                    }
+                ]
+            }
+        },
         watch: {
             options: {
                 'livereload': 35729
@@ -28,6 +40,14 @@ module.exports = function (grunt) {
             js: {
                 files: [
                     'app/**/*.js*'
+                ],
+                tasks: [
+                    'browserify'
+                ]
+            },
+            html: {
+                files: [
+                    'app/index.html'
                 ],
                 tasks: [
                     'browserify'
@@ -55,9 +75,15 @@ module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-install-dependencies');
 
     grunt.registerTask('default', ['watch']);
-    grunt.registerTask('build', ['install-dependencies', 'sass', 'browserify']);
+    grunt.registerTask('build', [
+        'copy:index.html',
+        'install-dependencies',
+        'sass',
+        'browserify'
+    ]);
 };
