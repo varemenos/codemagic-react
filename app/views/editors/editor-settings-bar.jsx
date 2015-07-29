@@ -4,11 +4,19 @@ import React from 'react';
 import dispatcher from '../../utilities/dispatcher.jsx';
 
 var EditorSettingsBar = React.createClass({
-    onClick: function (e) {
+    toggleEditorSettings: function (e) {
         'use strict';
 
         dispatcher.dispatch({
             actionType: 'toggle-editor-settings',
+            name: this.props.name
+        });
+    },
+    toggleEditorFullscreen: function (e) {
+        'use strict';
+
+        dispatcher.dispatch({
+            actionType: 'toggle-editor-fullscreen',
             name: this.props.name
         });
     },
@@ -23,11 +31,14 @@ var EditorSettingsBar = React.createClass({
                 <button
                     className='editor-settings-bar-toggle'
                     data-mode={this.props.name}
-                    onClick={this.onClick}
+                    onClick={this.toggleEditorSettings}
                 >
                     <i className='fa fa-cog' />
                 </button>
-                <button className='editor-settings-bar-expand'>
+                <button
+                    className='editor-settings-bar-expand'
+                    onClick={this.toggleEditorFullscreen}
+                >
                     <i className='fa fa-arrows-alt' />
                 </button>
             </div>

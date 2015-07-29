@@ -22,7 +22,7 @@ var ToolbarItem = React.createClass({
 
             dispatcher.dispatch({
                 actionType: 'enable-editor',
-                editorName: this.props.name,
+                name: this.props.name,
                 enabled: this.state.toggle
             });
 

@@ -33,11 +33,19 @@ var Editor = React.createClass({
 
         this.dispatcherID = dispatcher.register(function (payload) {
             if (payload.actionType === 'enable-editor') {
-                if (payload.editorName === this.props.name) {
+                if (payload.name === this.props.name) {
                     this.state.enabled = payload.enabled;
                     this.setState({
                         className: this.getClassName(payload.enabled)
                     });
+                }
+            }
+        }.bind(this));
+
+        this.dispatcherID = dispatcher.register(function (payload) {
+            if (payload.actionType === 'toggle-editor-fullscreen') {
+                if (payload.name === this.props.name) {
+                    utils.toggleFullscreenMode(this.getDOMNode());
                 }
             }
         }.bind(this));
