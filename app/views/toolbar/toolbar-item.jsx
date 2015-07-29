@@ -5,29 +5,46 @@ import ToolbarItemIcon from './toolbar-item-icon.jsx';
 import dispatcher from '../../utilities/dispatcher.jsx';
 
 var ToolbarItem = React.createClass({
+    toggleEditor: function () {
+        'use strict';
+
+        this.setState({
+            toggle: !this.state.toggle,
+            className: this.getClassName({
+                toggle: !this.state.toggle,
+                type: this.props.type,
+                brand: this.props.brand
+            })
+        });
+
+        dispatcher.dispatch({
+            actionType: 'enable-editor',
+            name: this.props.name,
+            enabled: this.state.toggle
+        });
+
+        dispatcher.dispatch({
+            actionType: 'resize-editor'
+        });
+    },
     onClick: function (e) {
         'use strict';
 
-        if (['markup', 'style', 'script'].filter(function (name) {
+        var isFullscreenItem = this.props.name === 'fullscreen';
+
+        var isEditorItem = [
+            'markup',
+            'style',
+            'script'
+        ].filter(function (name) {
             return name === this.props.name;
-        }.bind(this)).length) {
-            this.setState({
-                toggle: !this.state.toggle,
-                className: this.getClassName({
-                    toggle: !this.state.toggle,
-                    type: this.props.type,
-                    brand: this.props.brand
-                })
-            });
+        }.bind(this)).length;
 
+        if (isEditorItem) {
+            this.toggleEditor();
+        } else if (isFullscreenItem) {
             dispatcher.dispatch({
-                actionType: 'enable-editor',
-                name: this.props.name,
-                enabled: this.state.toggle
-            });
-
-            dispatcher.dispatch({
-                actionType: 'resize-editor'
+                actionType: 'toggle-result-fullscreen'
             });
         }
     },

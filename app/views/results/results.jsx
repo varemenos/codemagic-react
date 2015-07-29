@@ -3,6 +3,7 @@ import React from 'react';
 
 import Frame from 'react-frame-component';
 import dispatcher from '../../utilities/dispatcher.jsx';
+import utils from '../../utilities/utils.jsx';
 
 var Result = React.createClass({
     startedTyping: false,
@@ -38,6 +39,12 @@ var Result = React.createClass({
                         className: this.getCoverClassName(this.startedTyping)
                     }
                 });
+            }
+        }.bind(this));
+
+        this.state.dispatcherID = dispatcher.register(function (payload) {
+            if (payload.actionType === 'toggle-result-fullscreen') {
+                utils.toggleFullscreenMode(this.getDOMNode());
             }
         }.bind(this));
     },

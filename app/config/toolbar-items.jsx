@@ -23,6 +23,7 @@ var toolbarItems = [
         type: 'icon',
         icon: 'download'
     }, {
+        name: 'fullscreen',
         type: 'icon',
         icon: 'arrows-alt'
     }, {
