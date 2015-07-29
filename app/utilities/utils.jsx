@@ -15,7 +15,32 @@ var utils = {
         'webkitAnimationEnd',
         'MSAnimationEnd',
         'oAnimationEnd'
-    ]
+    ],
+    toggleFullscreenMode: function (target) {
+        'use strict';
+
+        if (!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
+            if (target.requestFullscreen) {
+                target.requestFullscreen();
+            } else if (target.mozRequestFullScreen) {
+                target.mozRequestFullScreen();
+            } else if (target.msRequestFullScreen) {
+                target.msRequestFullScreen();
+            } else if (target.webkitRequestFullscreen) {
+                target.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+            }
+        } else {
+            if (document.cancelFullScreen) {
+                document.cancelFullScreen();
+            } else if (document.mozCancelFullScreen) {
+                document.mozCancelFullScreen();
+            } else if (document.msCancelFullScreen) {
+                document.msCancelFullScreen();
+            } else if (document.webkitCancelFullScreen) {
+                document.webkitCancelFullScreen();
+            }
+        }
+    }
 };
 
 export default utils;
