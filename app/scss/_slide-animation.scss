@@ -1,0 +1,32 @@
+@mixin keyframes($name) {
+    @keyframes #{$name} { @content; }
+}
+
+@mixin slide ($name) {
+    $slideInName: #{$name}-slide-in;
+    $slideOutName: #{$name}-slide-out;
+
+    @include keyframes ($slideInName) {
+        0% {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: none;
+        }
+    }
+
+    @include keyframes ($slideOutName) {
+        0% {
+            opacity: 1;
+            transform: none;
+        }
+
+        100% {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+    }
+}

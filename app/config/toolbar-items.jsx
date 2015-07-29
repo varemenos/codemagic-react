@@ -46,12 +46,12 @@ var toolbarItems = [
         type: 'icon',
         icon: 'cog'
     }, {
+        type: 'icon',
+        icon: 'question-circle'
+    }, {
         type: 'text',
         text: 'Codemagic',
         brand: true
-    }, {
-        type: 'icon',
-        icon: 'question-circle'
     }
 ];
 

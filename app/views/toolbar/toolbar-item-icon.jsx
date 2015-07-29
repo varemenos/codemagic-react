@@ -1,3 +1,4 @@
+/* jsx */
 import React from 'react';
 
 var ToolbarItemIcon = React.createClass({

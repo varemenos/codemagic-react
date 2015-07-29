@@ -1,4 +1,6 @@
+/* jsx */
 import React from 'react';
+
 import ToolbarItem from './toolbar-item.jsx';
 
 var Toolbar = React.createClass({
@@ -7,7 +9,7 @@ var Toolbar = React.createClass({
 
         return {
             items: this.props.items
-        }
+        };
     },
     render: function () {
         'use strict';

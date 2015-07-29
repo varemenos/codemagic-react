@@ -1,5 +1,6 @@
 'use strict';
 
+/* jsx */
 import React from 'react';
 
 import App from './views/app.jsx';
@@ -10,11 +11,11 @@ var Codemagic = React.createClass({
     getInitialState: function () {
         return {
             toolbarItems
-        }
+        };
     },
     render: function () {
         return (
-            <div className="main">
+            <div className='main'>
                 <Toolbar items={this.state.toolbarItems} />
                 <App />
             </div>

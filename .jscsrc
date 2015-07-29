@@ -1,6 +1,10 @@
 {
     "esnext": true,
-    "fileExtensions": [".js", "jscs", ".json"],
+    "fileExtensions": [
+        ".js",
+        "jscs",
+        ".json"
+    ],
     "requireParenthesesAroundIIFE": true,
     "validateLineBreaks": "LF",
     "validateIndentation": 4,
@@ -24,7 +28,9 @@
     "disallowMixedSpacesAndTabs": true,
     "disallowTrailingWhitespace": true,
     "disallowTrailingComma": true,
-    "disallowKeywordsOnNewLine": ["else"],
+    "disallowKeywordsOnNewLine": [
+        "else"
+    ],
     "disallowNewlineBeforeBlockStatements": true,
     "validateQuoteMarks": "'",
     "validateParameterSeparator": ", ",
@@ -32,7 +38,9 @@
     "requireCapitalizedConstructors": true,
     "requireSpaceAfterLineComment": true,
     "disallowYodaConditions": true,
-    "safeContextKeyword": ["self"],
+    "safeContextKeyword": [
+        "self"
+    ],
     "disallowEmptyBlocks": true,
     "requireSpacesInFunctionExpression": {
         "beforeOpeningRoundBrace": true,

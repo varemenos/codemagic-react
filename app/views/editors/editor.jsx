@@ -1,13 +1,35 @@
+/* jsx */
 import React from 'react';
 
 import AceEditor from './ace-editor.jsx';
 import EditorSettings from './editor-settings.jsx';
+import EditorSettingsBar from './editor-settings-bar.jsx';
 import dispatcher from '../../utilities/dispatcher.jsx';
+import utils from '../../utilities/utils.jsx';
 
 var Editor = React.createClass({
     dispatcherID: false,
+    animate: function () {
+        'use strict';
+
+        var el = this.getDOMNode();
+
+        utils.animationEnd.forEach(function (prefixedAnimationEnd) {
+            el.addEventListener(prefixedAnimationEnd, function (e) {
+                if (e.animationName === 'editor-slide-in') {
+                    el.classList.remove('editor-slide-in');
+                    el.classList.remove('disabled');
+                } else if (e.animationName === 'editor-slide-out') {
+                    el.classList.remove('editor-slide-out');
+                    el.classList.add('disabled');
+                }
+            });
+        });
+    },
     componentDidMount: function () {
         'use strict';
+
+        this.animate();
 
         this.dispatcherID = dispatcher.register(function (payload) {
             if (payload.actionType === 'enable-editor') {
@@ -23,6 +45,12 @@ var Editor = React.createClass({
     componentDidUnmount: function () {
         'use strict';
 
+        var el = this.getDOMNode();
+
+        utils.animationEnd.forEach(function (prefixedAnimationEnd) {
+            el.removeEventListener(prefixedAnimationEnd);
+        });
+
         dispatcher.unregister(this.dispatcherID);
     },
     getClassName: function (enabled) {
@@ -31,7 +59,11 @@ var Editor = React.createClass({
         var className = 'editor-container';
 
         if (enabled) {
-            className += ' enabled';
+            className.replace('editor-slide-out', '');
+            className += ' editor-slide-in';
+        } else {
+            className.replace('editor-slide-in', '');
+            className += ' editor-slide-out';
         }
 
         return className;
@@ -50,7 +82,8 @@ var Editor = React.createClass({
 
         return (
             <div className={this.state.className}>
-                <EditorSettings mode={this.state.mode} />
+                <EditorSettingsBar mode={this.state.mode} name={this.props.name} />
+                <EditorSettings name={this.props.name} />
                 <AceEditor
                     mode={this.state.mode}
                     enabled={this.state.enabled}

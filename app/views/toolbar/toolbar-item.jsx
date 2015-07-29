@@ -1,3 +1,4 @@
+/* jsx */
 import React from 'react';
 
 import ToolbarItemIcon from './toolbar-item-icon.jsx';
@@ -8,7 +9,7 @@ var ToolbarItem = React.createClass({
         'use strict';
 
         if (['markup', 'style', 'script'].filter(function (name) {
-            return name === this.props.name
+            return name === this.props.name;
         }.bind(this)).length) {
             this.setState({
                 toggle: !this.state.toggle,
@@ -23,6 +24,10 @@ var ToolbarItem = React.createClass({
                 actionType: 'enable-editor',
                 editorName: this.props.name,
                 enabled: this.state.toggle
+            });
+
+            dispatcher.dispatch({
+                actionType: 'resize-editor'
             });
         }
     },
@@ -56,15 +61,11 @@ var ToolbarItem = React.createClass({
             }
         }
 
-        className += [
-            'expand',
-            'separator',
-            'space'
-        ].map(function (prop) {
-            if (attrs.type === prop) {
-                return ' toolbar-item-' + prop;
-            }
-        }.bind(this)).join(' ');
+        className += ['expand', 'separator', 'space'].filter(function (prop) {
+            return attrs.type === prop;
+        }).map(function (prop) {
+            return ' toolbar-item-' + prop;
+        }).join(' ');
 
         if (attrs.brand) {
             className += ' toolbar-item-brand';

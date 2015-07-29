@@ -1,7 +1,13 @@
+/* jsx */
 import React from 'react';
+
 import ace from 'brace';
+import dispatcher from '../../utilities/dispatcher.jsx';
+import utils from '../../utilities/utils.jsx';
 
 var AceEditor = React.createClass({
+    dispatcherID: false,
+    startedTyping: false,
     propTypes: {
         mode: React.PropTypes.string,
         printMargin: React.PropTypes.bool,
@@ -40,11 +46,33 @@ var AceEditor = React.createClass({
         this.editor.setTheme('ace/theme/tomorrow_night');
         this.editor.setShowPrintMargin(this.props.printMargin);
         this.editor.on('change', this.onChange);
+
+        this.dispatcherID = dispatcher.register(function (payload) {
+            if (payload.actionType === 'resize-editor') {
+                if (this.editor) {
+                    this.editor.resize(true);
+                }
+            }
+        }.bind(this));
+    },
+    componentDidUnmount: function () {
+        'use strict';
+
+        dispatcher.unregister(this.dispatcherID);
     },
     onChange: function () {
         'use strict';
 
+        if (!this.startedTyping) {
+            dispatcher.dispatch({
+                actionType: 'started-typing'
+            });
+            this.startedTyping = true;
+        }
+
         var value = this.editor.getValue();
+
+        utils.renderResult(value);
     },
     render: function () {
         'use strict';

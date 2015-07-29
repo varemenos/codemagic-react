@@ -6,58 +6,85 @@
 }
 
 .editor-container {
-    display: none;
+    $animationSelector: 'editor';
+    @include slide($animationSelector);
+    display: flex;
     flex: 1;
     flex-direction: column;
     position: relative;
     margin: 1rem;
     margin-right: 0;
     margin-bottom: 0;
+    animation-fill-mode: forwards;
+    animation-duration: 250ms;
 
-    &.enabled {
-        display: flex;
+    &.#{$animationSelector}-slide-in {
+        animation-name: #{$animationSelector}-slide-in;
+    }
+
+    &.#{$animationSelector}-slide-out {
+        animation-name: #{$animationSelector}-slide-out;
+    }
+
+    &.disabled {
+        display: none;
     }
 
     .editor {
         flex: 1;
     }
 
-    .ace-tomorrow-night .ace_marker-layer .ace_active-line,
-    .ace-tomorrow-night .ace_gutter-active-line {
-        background: rgba(255, 255, 255, 0.05);
-    }
-
-    .ace-tomorrow-night .ace_marker-layer .ace_selection {
-        background: rgba(255, 255, 255, 0.1);
-    }
-
-    .ace-tomorrow-night {
-        background: #234;
-    }
-
-    .ace-tomorrow-night .ace_print-margin,
-    .ace-tomorrow-night .ace_gutter {
-        background: #345;
-    }
+    @import '_codemagic-tomorrow-night';
 }
 
 .editor-settings {
+    $animationSelector: 'editor-settings';
+    @include slide($animationSelector);
+    box-sizing: border-box;
+    overflow: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 2.54em;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 5;
+    color: #fff;
+    background-color: #345;
+    animation-fill-mode: forwards;
+    animation-duration: 250ms;
+
+    &.#{$animationSelector}-slide-in {
+        animation-name: #{$animationSelector}-slide-in;
+    }
+
+    &.#{$animationSelector}-slide-out {
+        animation-name: #{$animationSelector}-slide-out;
+    }
+
+    &.disabled {
+        z-index: -1;
+    }
+}
+
+.editor-settings-bar {
     display: flex;
     color: #fff;
+    background-color: #345;
 
-    .editor-settings-mode,
-    .editor-settings-expand,
-    .editor-settings-toggle {
+    .editor-settings-bar-mode,
+    .editor-settings-bar-expand,
+    .editor-settings-bar-toggle {
         padding: 0.675em 1em;
     }
 
-    .editor-settings-mode {
+    .editor-settings-bar-mode {
         flex: 1;
         padding-left: 0;
     }
 
-    .editor-settings-expand,
-    .editor-settings-toggle {
+    .editor-settings-bar-expand,
+    .editor-settings-bar-toggle {
         font-size: 0.875em;
         color: #fff;
         border: 0;

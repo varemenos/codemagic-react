@@ -19,6 +19,10 @@
         background-color: #456;
         border: none;
 
+        &.disabled {
+            display: none;
+        }
+
         p {
             line-height: 1.5;
         }

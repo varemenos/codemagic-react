@@ -1,4 +1,6 @@
+/* jsx */
 import React from 'react';
+
 import Editors from './editors/editors.jsx';
 import Result from './results/results.jsx';
 import editors from '../config/editors.jsx';
@@ -8,7 +10,7 @@ var App = React.createClass({
         'use strict';
 
         return (
-            <div className="app">
+            <div className='app'>
                 <Editors editors={editors} />
                 <Result />
             </div>
