@@ -2,8 +2,17 @@ module.exports = function (grunt) {
     'use strict';
 
     grunt.initConfig({
+        extract_sourcemap: {
+            dev: {
+                files: {
+                    'dist/': [
+                        'dist/main.js'
+                    ]
+                }
+            }
+        },
         browserify: {
-            dist: {
+            dev: {
                 options: {
                     browserifyOptions: {
                         debug: true
@@ -42,7 +51,8 @@ module.exports = function (grunt) {
                     'app/**/*.js*'
                 ],
                 tasks: [
-                    'browserify'
+                    'browserify',
+                    'extract_sourcemap:dist'
                 ]
             },
             html: {
@@ -77,11 +87,13 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-extract-sourcemap');
 
     grunt.registerTask('default', ['watch']);
     grunt.registerTask('build', [
         'copy:index.html',
-        'sass',
-        'browserify'
+        'sass:dev',
+        'browserify:dev',
+        'extract_sourcemap:dev'
     ]);
 };
