@@ -1,6 +1,4 @@
 module.exports = function (grunt) {
-    'use strict';
-
     grunt.initConfig({
         extract_sourcemap: {
             dev: {
@@ -44,7 +42,7 @@ module.exports = function (grunt) {
         },
         watch: {
             options: {
-                'livereload': 35729
+                livereload: 35729
             },
             js: {
                 files: [
@@ -52,7 +50,7 @@ module.exports = function (grunt) {
                 ],
                 tasks: [
                     'browserify',
-                    'extract_sourcemap:dist'
+                    'extract_sourcemap:dev'
                 ]
             },
             html: {
