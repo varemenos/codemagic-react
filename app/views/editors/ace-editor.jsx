@@ -14,15 +14,11 @@ var AceEditor = React.createClass({
         onChange: React.PropTypes.func
     },
     getDefaultProps: function () {
-        'use strict';
-
         return {
             printMargin: false
         };
     },
     componentDidMount: function () {
-        'use strict';
-
         // themes
         require('brace/theme/tomorrow_night');
 
@@ -35,6 +31,7 @@ var AceEditor = React.createClass({
         require('brace/mode/css');
         require('brace/mode/scss');
         require('brace/mode/less');
+
         // js modes
         require('brace/mode/javascript');
         require('brace/mode/coffee');
@@ -56,13 +53,9 @@ var AceEditor = React.createClass({
         }.bind(this));
     },
     componentDidUnmount: function () {
-        'use strict';
-
         dispatcher.unregister(this.dispatcherID);
     },
     onChange: function () {
-        'use strict';
-
         if (!this.startedTyping) {
             dispatcher.dispatch({
                 actionType: 'started-typing'
@@ -75,18 +68,15 @@ var AceEditor = React.createClass({
         utils.renderResult(value);
     },
     render: function () {
-        'use strict';
-
         var id = this.props.mode + '-editor';
         var className = this.props.mode + ' editor';
 
-        return (
+        return 0,
             <div
                 className={className}
                 id={id}
                 onChange={this.onChange}
-            />
-        );
+            />;
     }
 });
 

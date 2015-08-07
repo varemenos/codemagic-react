@@ -6,8 +6,6 @@ import utils from '../../utilities/utils.jsx';
 
 var EditorSettings = React.createClass({
     animate: function () {
-        'use strict';
-
         var el = this.getDOMNode();
 
         utils.animationEnd.forEach(function (prefixedAnimationEnd) {
@@ -23,8 +21,6 @@ var EditorSettings = React.createClass({
         });
     },
     getClassName: function (enabled) {
-        'use strict';
-
         var className = 'editor-settings';
 
         if (enabled) {
@@ -38,15 +34,11 @@ var EditorSettings = React.createClass({
         return className;
     },
     getInitialState: function () {
-        'use strict';
-
         return {
             enabled: false
         };
     },
     componentDidMount: function () {
-        'use strict';
-
         this.animate();
 
         dispatcher.register(function (payload) {
@@ -60,19 +52,14 @@ var EditorSettings = React.createClass({
         }.bind(this));
     },
     componentDidUnmount: function () {
-        'use strict';
-
         utils.animationEnd.forEach(function (prefixedAnimationEnd) {
             el.removeEventListener(prefixedAnimationEnd);
         });
     },
     render: function () {
-        'use strict';
-
-        return (
+        return 0,
             <div className={this.getClassName(this.state.enabled)}>
-            </div>
-        );
+            </div>;
     }
 });
 

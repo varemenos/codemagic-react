@@ -1,7 +1,5 @@
 var utils = {
-    renderResult: function (value) {
-        'use strict';
-
+    renderResult: function renderResult (value) {
         var iframeDocument = document.querySelector('.result iframe').contentDocument;
 
         // construct proper dom with the value
@@ -16,9 +14,7 @@ var utils = {
         'MSAnimationEnd',
         'oAnimationEnd'
     ],
-    toggleFullscreenMode: function (target) {
-        'use strict';
-
+    toggleFullscreenMode: function toggleFullscreenMode (target) {
         if (!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
             if (target.requestFullscreen) {
                 target.requestFullscreen();

@@ -5,25 +5,19 @@ import dispatcher from '../../utilities/dispatcher.jsx';
 
 var EditorSettingsBar = React.createClass({
     toggleEditorSettings: function (e) {
-        'use strict';
-
         dispatcher.dispatch({
             actionType: 'toggle-editor-settings',
             name: this.props.name
         });
     },
     toggleEditorFullscreen: function (e) {
-        'use strict';
-
         dispatcher.dispatch({
             actionType: 'toggle-editor-fullscreen',
             name: this.props.name
         });
     },
     render: function () {
-        'use strict';
-
-        return (
+        return 0,
             <div className='editor-settings-bar'>
                 <div className='editor-settings-bar-mode'>
                     {this.props.mode.toUpperCase()}
@@ -41,8 +35,7 @@ var EditorSettingsBar = React.createClass({
                 >
                     <i className='fa fa-arrows-alt' />
                 </button>
-            </div>
-        );
+            </div>;
     }
 });
 

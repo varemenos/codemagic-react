@@ -7,14 +7,11 @@ import editors from '../config/editors.jsx';
 
 var App = React.createClass({
     render: function () {
-        'use strict';
-
-        return (
+        return 0,
             <div className='app'>
                 <Editors editors={editors} />
                 <Result />
-            </div>
-        );
+            </div>;
     }
 });
 

@@ -6,8 +6,6 @@ import dispatcher from '../../utilities/dispatcher.jsx';
 
 var ToolbarItem = React.createClass({
     toggleEditor: function () {
-        'use strict';
-
         this.setState({
             toggle: !this.state.toggle,
             className: this.getClassName({
@@ -28,8 +26,6 @@ var ToolbarItem = React.createClass({
         });
     },
     onClick: function (e) {
-        'use strict';
-
         var isFullscreenItem = this.props.name === 'fullscreen';
 
         var isEditorItem = [
@@ -49,13 +45,9 @@ var ToolbarItem = React.createClass({
         }
     },
     componentDidMount: function () {
-        'use strict';
-
         this.getDOMNode().addEventListener('click', this.onClick);
     },
     getInitialState: function () {
-        'use strict';
-
         return {
             toggle: this.props.toggle,
             className: this.getClassName({
@@ -66,8 +58,6 @@ var ToolbarItem = React.createClass({
         };
     },
     getClassName: function (attrs) {
-        'use strict';
-
         var className = 'toolbar-item';
 
         if (typeof attrs.toggle !== 'undefined') {
@@ -91,8 +81,6 @@ var ToolbarItem = React.createClass({
         return className;
     },
     render: function () {
-        'use strict';
-
         var ToolbarContent;
 
         if (this.props.type === 'icon') {
@@ -101,11 +89,10 @@ var ToolbarItem = React.createClass({
             ToolbarContent = this.props.text;
         }
 
-        return (
+        return 0,
             <button className={this.state.className}>
                 {ToolbarContent}
-            </button>
-        );
+            </button>;
     }
 });
 

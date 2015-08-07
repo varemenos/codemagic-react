@@ -5,17 +5,13 @@ import ToolbarItem from './toolbar-item.jsx';
 
 var Toolbar = React.createClass({
     getInitialState: function () {
-        'use strict';
-
         return {
             items: this.props.items
         };
     },
     render: function () {
-        'use strict';
-
         var ToolBarItems = this.state.items.map(function (item, index) {
-            return (
+            return 0,
                 <ToolbarItem
                     name={item.name}
                     type={item.type}
@@ -24,18 +20,21 @@ var Toolbar = React.createClass({
                     brand={item.brand}
                     toggle={item.toggle}
                     key={index}
-                />
-            );
+                />;
         });
 
         var className = 'toolbar';
-        className += this.props.type ? ' ' + this.props.type : '';
 
-        return (
+        if (this.props.type) {
+            className += ' ' + this.props.type;
+        } else {
+            className += '';
+        }
+
+        return 0,
             <nav className={className}>
                 {ToolBarItems}
-            </nav>
-        );
+            </nav>;
     }
 });
 

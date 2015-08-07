@@ -8,8 +8,6 @@ import utils from '../../utilities/utils.jsx';
 var Result = React.createClass({
     startedTyping: false,
     getInitialState: function () {
-        'use strict';
-
         return {
             cover: {
                 className: this.getCoverClassName(this.startedTyping)
@@ -18,8 +16,6 @@ var Result = React.createClass({
         };
     },
     getCoverClassName: function (startedTyping) {
-        'use strict';
-
         var className = 'cover';
 
         if (startedTyping) {
@@ -29,8 +25,6 @@ var Result = React.createClass({
         return className;
     },
     componentDidMount: function () {
-        'use strict';
-
         this.state.dispatcherID = dispatcher.register(function (payload) {
             if (payload.actionType === 'started-typing') {
                 this.startedTyping = true;
@@ -49,14 +43,10 @@ var Result = React.createClass({
         }.bind(this));
     },
     componentDidUnmount: function () {
-        'use strict';
-
         dispatcher.unregister(this.state.dispatcherID);
     },
     render: function () {
-        'use strict';
-
-        return (
+        return 0,
             <div className='result'>
                 <div className={this.state.cover.className}>
                     <p>
@@ -66,8 +56,7 @@ var Result = React.createClass({
                     </p>
                 </div>
                 <Frame></Frame>
-            </div>
-        );
+            </div>;
     }
 });
 

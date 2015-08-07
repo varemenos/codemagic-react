@@ -1,5 +1,3 @@
-'use strict';
-
 /* jsx */
 import React from 'react';
 
@@ -10,16 +8,15 @@ import toolbarItems from './config/toolbar-items.jsx';
 var Codemagic = React.createClass({
     getInitialState: function () {
         return {
-            toolbarItems
+            toolbarItems: toolbarItems
         };
     },
     render: function () {
-        return (
+        return 0,
             <div className='main'>
                 <Toolbar items={this.state.toolbarItems} />
                 <App />
-            </div>
-        );
+            </div>;
     }
 });
 

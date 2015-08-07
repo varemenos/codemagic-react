@@ -10,8 +10,6 @@ import utils from '../../utilities/utils.jsx';
 var Editor = React.createClass({
     dispatcherID: false,
     animate: function () {
-        'use strict';
-
         var el = this.getDOMNode();
 
         utils.animationEnd.forEach(function (prefixedAnimationEnd) {
@@ -27,8 +25,6 @@ var Editor = React.createClass({
         });
     },
     componentDidMount: function () {
-        'use strict';
-
         this.animate();
 
         this.dispatcherID = dispatcher.register(function (payload) {
@@ -51,8 +47,6 @@ var Editor = React.createClass({
         }.bind(this));
     },
     componentDidUnmount: function () {
-        'use strict';
-
         var el = this.getDOMNode();
 
         utils.animationEnd.forEach(function (prefixedAnimationEnd) {
@@ -62,8 +56,6 @@ var Editor = React.createClass({
         dispatcher.unregister(this.dispatcherID);
     },
     getClassName: function (enabled) {
-        'use strict';
-
         var className = 'editor-container';
 
         if (enabled) {
@@ -77,8 +69,6 @@ var Editor = React.createClass({
         return className;
     },
     getInitialState: function () {
-        'use strict';
-
         return {
             mode: this.props.mode,
             enabled: this.props.enabled,
@@ -86,8 +76,6 @@ var Editor = React.createClass({
         };
     },
     render: function () {
-        'use strict';
-
         return (
             <div className={this.state.className}>
                 <EditorSettingsBar mode={this.state.mode} name={this.props.name} />
