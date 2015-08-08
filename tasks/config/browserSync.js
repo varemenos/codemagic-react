@@ -8,8 +8,9 @@ module.exports = {
         options: {
             watchTask: true,
             server: './dist',
-            tunnel: 'codemagic',
-            open: false
+            tunnel: true,
+            open: false,
+            logConnections: true
         }
     }
 };

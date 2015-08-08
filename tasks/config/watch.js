@@ -13,7 +13,7 @@ module.exports = {
             'app/index.html'
         ],
         tasks: [
-            'browserify'
+            'copy:index.html'
         ]
     },
     sass: {
