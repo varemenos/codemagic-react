@@ -4,7 +4,7 @@ import React from 'react';
 import Editors from './editors/editors.jsx';
 import Result from './results/results.jsx';
 
-import {editors} from '../stores/index.jsx';
+import {editors} from '../config/index.jsx';
 
 var App = React.createClass({
     render: function () {

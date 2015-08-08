@@ -4,7 +4,7 @@ import React from 'react';
 import App from './components/app.jsx';
 import Toolbar from './components/toolbar/toolbar.jsx';
 
-import {toolbarItems} from './stores/index.jsx';
+import {toolbarItems} from './config/index.jsx';
 
 var Codemagic = React.createClass({
     getInitialState: function () {
