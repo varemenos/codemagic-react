@@ -1,7 +1,4 @@
 module.exports = {
-    options: {
-        livereload: 35729
-    },
     js: {
         files: [
             'app/**/*.js*'
