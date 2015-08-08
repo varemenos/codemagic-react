@@ -1,4 +1,4 @@
-var toolbarItems = [
+export default [
     {
         name: 'markup',
         type: 'icon',
@@ -55,5 +55,3 @@ var toolbarItems = [
         brand: true
     }
 ];
-
-export default toolbarItems;

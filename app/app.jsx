@@ -1,9 +1,10 @@
 /* jsx */
 import React from 'react';
 
-import App from './views/app.jsx';
-import Toolbar from './views/toolbar/toolbar.jsx';
-import toolbarItems from './config/toolbar-items.jsx';
+import App from './components/app.jsx';
+import Toolbar from './components/toolbar/toolbar.jsx';
+
+import {toolbarItems} from './stores/index.jsx';
 
 var Codemagic = React.createClass({
     getInitialState: function () {

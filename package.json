@@ -2,7 +2,7 @@
   "name": "codemagic",
   "version": "0.0.1",
   "description": "",
-  "main": "main.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "node_modules/.bin/bower install"
@@ -29,6 +29,7 @@
     "time-grunt": "^1.2.1"
   },
   "dependencies": {
-    "jquery": "^2.1.4"
+    "jquery": "^2.1.4",
+    "redux": "^0.12.0"
   }
 }

@@ -1,4 +1,4 @@
-var editors = [
+export default [
     {
         name: 'markup',
         mode: 'html',
@@ -13,5 +13,3 @@ var editors = [
         enabled: true
     }
 ];
-
-export default editors;

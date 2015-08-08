@@ -11,8 +11,8 @@ module.exports = {
             ]
         },
         files: {
-            'dist/main.js': [
-                'app/main.jsx'
+            'dist/app.js': [
+                'app/app.jsx'
             ]
         }
     }
