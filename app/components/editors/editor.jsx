@@ -76,7 +76,7 @@ var Editor = React.createClass({
         };
     },
     render: function () {
-        return (
+        return 0,
             <div className={this.state.className}>
                 <EditorSettingsBar mode={this.state.mode} name={this.props.name} />
                 <EditorSettings name={this.props.name} />
@@ -84,8 +84,7 @@ var Editor = React.createClass({
                     mode={this.state.mode}
                     enabled={this.state.enabled}
                 />
-            </div>
-        );
+            </div>;
     }
 });
 
