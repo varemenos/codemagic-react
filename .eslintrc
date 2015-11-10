@@ -119,6 +119,6 @@
             "nonwords": false
         }],
         "spaced-comment": [2, "always"],
-        "wrap-regex": [2],
+        "wrap-regex": [2]
     }
 }
